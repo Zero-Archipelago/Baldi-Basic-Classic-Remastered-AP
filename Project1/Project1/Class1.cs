@@ -51,6 +51,8 @@ namespace BaldiAP
         public static Dictionary<string, long> option_values = new Dictionary<string, long>();
         public static List<string> doors_obtained = new List<string>();
 
+        public static Menu menu;
+
         public void Get_Ap_Info()
         {
             var myLoc = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -94,10 +96,12 @@ namespace BaldiAP
         {
             // Plugin startup logic
             Logger = base.Logger;
-            Logger.LogInfo($"Plugin is loaded! Get ready for either torture, or errors, which could also be a form of torture I suppose.");
+            Logger.LogInfo($"Oh, hi. Welcome to my RANDOMIZER.");
             Get_Ap_Info();
-            ap_session = ArchipelagoSessionFactory.CreateSession(ap_ip, Int32.Parse(ap_port));
+            // ap_session = ArchipelagoSessionFactory.CreateSession(ap_ip, Int32.Parse(ap_port));
 
+            menu = new Menu();
+            
             ap_session.Items.ItemReceived += (receivedItemsHelper) => {
                 var itemReceivedID = receivedItemsHelper.PeekItem().ItemId;
 
@@ -323,7 +327,9 @@ namespace BaldiAP
 
         public void Update()
         {
-            var connect_status = "Connected! Launch Classic Style to play";
+            menu.Update();
+            
+            var connect_status = "Connected! Launch an unlocked style to play";
             if (MyPatches.lockedStandard == null)
             {
                 foreach (var mat in Resources.FindObjectsOfTypeAll<Material>())
@@ -607,6 +613,11 @@ namespace BaldiAP
                 GameObject.FindObjectOfType<MainMenu>().transform.Find("Copyright").GetComponent<TextMeshProUGUI>().text = connect_status;
                 GameObject.FindObjectOfType<MainMenu>().transform.Find("Version").GetComponent<TextMeshProUGUI>().text = "Archipelago Installed";
             }
+        }
+
+        private void OnGUI()
+        {
+            menu.OnGUI();
         }
     }
 
