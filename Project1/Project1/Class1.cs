@@ -98,7 +98,7 @@ namespace BaldiAP
             Logger = base.Logger;
             Logger.LogInfo($"Oh, hi. Welcome to my RANDOMIZER.");
             Get_Ap_Info();
-            // ap_session = ArchipelagoSessionFactory.CreateSession(ap_ip, Int32.Parse(ap_port));
+            ap_session = ArchipelagoSessionFactory.CreateSession(ap_ip, Int32.Parse(ap_port));
 
             menu = new Menu();
             
@@ -357,7 +357,7 @@ namespace BaldiAP
                     myLockedExits = new Dictionary<string, Elevator>();
                     items_queue = new List<Items>();
                     item_list = new Dictionary<Items, ItemObject>();
-                    var result = ap_session.TryConnectAndLogin(game: "Baldis Basics Classic Remastered", name: ap_slot, itemsHandlingFlags: ItemsHandlingFlags.AllItems);
+                    var result = ap_session.TryConnectAndLogin(game: "Baldi's Basics Classic Remastered", name: ap_slot, itemsHandlingFlags: ItemsHandlingFlags.AllItems);
                     if (!result.Successful)
                     {
                         Logger.LogError($"FAILED TO CONNECT TO SLOT\nIP = " + ap_ip + ":" + ap_port + "\nSLOT = " + ap_slot);

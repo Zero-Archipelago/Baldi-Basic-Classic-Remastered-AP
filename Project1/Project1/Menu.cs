@@ -6,17 +6,26 @@ namespace BaldiAP
     public class Menu
     {
         private bool ShowMenu = false;
-        public string Server;
-        public string Slot;
-        public string Password;
+        public string Server = "";
+        public string Slot = "";
+        public string Password = "";
 
-        private Rect WindowRect => new Rect(20, 20, 250, 150);
+        private Rect WindowRect => new Rect(20, 20, 300, 350);
 
         public void Update()
         {
             if (Input.GetKeyDown(KeyCode.F1))
             {
                 ShowMenu = !ShowMenu;
+                Cursor.visible = ShowMenu;
+                if (ShowMenu)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
             }
         }
 
@@ -35,13 +44,13 @@ namespace BaldiAP
             GUILayout.Space(8);
 
             GUILayout.Label("Server:");
-            Server = GUILayout.TextField("Server:Port");
+            Server = GUILayout.TextField(Server);
 
             GUILayout.Label("Slot:");
-            Slot = GUILayout.TextField("Slot Name");
+            Slot = GUILayout.TextField(Slot);
 
             GUILayout.Label("Password:");
-            Password = GUILayout.PasswordField("Room Password", '*');
+            Password = GUILayout.PasswordField(Password, '*');
 
             GUILayout.Space(10);
 

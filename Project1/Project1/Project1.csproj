@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,7 +39,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AP_Hand.cs" />
+    <Compile Include="BaldiConsole.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ItemHandler.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="Menu.cs" />
   </ItemGroup>
   <ItemGroup>
