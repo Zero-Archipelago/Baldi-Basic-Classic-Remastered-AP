@@ -13,16 +13,12 @@ public class BaldiConsole : MonoBehaviour
 {
     private static readonly Dictionary<string, string> KeywordColors = new()
     {
-        { "99 Door", "#ff44ff"},
-        { "Explosive", "#ff4444"},
-        { "Ladder", "#44ff44"},
-        { "Electric", "#4444ff"},
-        { "Bridge", "#ffff44"},
-        
-        { "Soapboard", "#E9DED7"},
-        { "Bubble", "#A7C7E7"},
-        { "Progressive", "#C8A2C8"},
-        { "Key", "#008080"},
+        { "99 Door", "#0063FF"},
+        { "Yellow Swinging Door", "#E6FF00"},
+        { "School Faculty Door", "#7D2600"},
+        { "(Trap)", "#FF0000"},
+        { "Exit", "#4F4F4F"},
+        { "Baldi", "#0DFF00"},
     };
 
     private const string FontName = "CCDigitalDeliveryRegular SDF";
