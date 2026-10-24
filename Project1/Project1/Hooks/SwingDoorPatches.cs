@@ -14,7 +14,7 @@ public class SwingDoorPatches
         return true;
     }
 
-    public static void RenameSwingDoor(Transform transform)
+    private static void RenameSwingDoor(Transform transform)
     {
         switch (transform.position.x, transform.position.y,  transform.position.z)
         {
