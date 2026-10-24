@@ -10,7 +10,7 @@ namespace BaldiAP
     [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
     public class Main : BaseUnityPlugin
     {
-        public const string GameName = "Baldi's Basics Classic Remastered";
+        public const string GameName = "Baldis Basics Classic Remastered";
         public const string pluginGuid = "grenhunterr.baldi.archipelago.unityisstupid";
         public const string pluginName = "Archipelago";
         public const string pluginVersion = "0.0.1";

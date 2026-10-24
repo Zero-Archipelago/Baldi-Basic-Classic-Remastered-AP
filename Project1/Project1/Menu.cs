@@ -15,7 +15,12 @@ namespace BaldiAP
         public void Update()
         {
             if (Main.ArchipelagoHandler.IsConnected)
+            {
+                showMenu = false;
+                CursorController.Instance.DisableClick(false);
+                CursorController.Instance.Hide(false);
                 return;
+            }
             MenuShow();
         }
 
