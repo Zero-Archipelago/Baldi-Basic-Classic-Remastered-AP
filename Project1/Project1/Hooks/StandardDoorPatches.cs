@@ -16,53 +16,24 @@ public class StandardDoorPatches
 
     private static void RenameStandardDoor(Transform transform)
     {
-        switch (transform.position.x, transform.position.y, transform.position.z)
+        transform.name = (transform.position.x, transform.position.y, transform.position.z) switch
         {
-            case (165.0f, 0.0f, 55.0f):
-                transform.name = "StandardDoor1";
-                break;
-            case (185.0f, 0.0f, 65.0f):
-                transform.name = "StandardDoor2";
-                break;
-            case (195.0f, 0.0f, 155.0f):
-                transform.name = "StandardDoor3";
-                break;
-            case (145.0f, 0.0f, 265.0f):
-                transform.name = "StandardDoor4";
-                break;
-            case (55.0f, 0.0f, 305.0f):
-                transform.name = "StandardDoor5";
-                break;
-            case (275.0f, 0.0f, 335.0f):
-                transform.name = "StandardDoor6";
-                break;
-            case (275.0f, 0.0f, 195.0f):
-                transform.name = "StandardDoor7";
-                break;
-            case (95.0f, 0.0f, 45.0f):
-                transform.name = "StandardDoor8";
-                break;
-            case (115.0f, 0.0f, 95.0f):
-                transform.name = "StandardDoor9";
-                break;
-            case (145.0f, 0.0f, 155.0f):
-                transform.name = "StandardDoor10";
-                break;
-            case (275.0f, 0.0f, 125.0f):
-                transform.name = "StandardDoor11";
-                break;
-            case (215.0f, 0.0f, 265.0f):
-                transform.name = "StandardDoor12";
-                break;
-            case (75.0f, 0.0f, 195.0f):
-                transform.name = "StandardDoor13";
-                break;
-            case (195.0f, 0.0f, 195.0f):
-                transform.name = "StandardDoor14";
-                break;
-            case (245.0f, 0.0f, 65.0f):
-                transform.name = "StandardDoor15";
-                break;
-        }
+            (165.0f, 0.0f, 55.0f) => "StandardDoor1",
+            (185.0f, 0.0f, 65.0f) => "StandardDoor2",
+            (195.0f, 0.0f, 155.0f) => "StandardDoor3",
+            (145.0f, 0.0f, 265.0f) => "StandardDoor4",
+            (55.0f, 0.0f, 305.0f) => "StandardDoor5",
+            (275.0f, 0.0f, 335.0f) => "StandardDoor6",
+            (275.0f, 0.0f, 195.0f) => "StandardDoor7",
+            (95.0f, 0.0f, 45.0f) => "StandardDoor8",
+            (115.0f, 0.0f, 95.0f) => "StandardDoor9",
+            (145.0f, 0.0f, 155.0f) => "StandardDoor10",
+            (275.0f, 0.0f, 125.0f) => "StandardDoor11",
+            (215.0f, 0.0f, 265.0f) => "StandardDoor12",
+            (75.0f, 0.0f, 195.0f) => "StandardDoor13",
+            (195.0f, 0.0f, 195.0f) => "StandardDoor14",
+            (245.0f, 0.0f, 65.0f) => "StandardDoor15",
+            _ => transform.name
+        };
     }
 }
