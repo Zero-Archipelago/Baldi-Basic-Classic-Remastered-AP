@@ -25,6 +25,7 @@ namespace BaldiAP
         [CanBeNull] public static ManualLogSource logger;
         
         public static ArchipelagoHandler ArchipelagoHandler;
+        public static SlotData SlotData;
         public static ItemHandler ItemHandler;
 
         public static Menu menu;
