@@ -45,6 +45,9 @@
     <Compile Include="ItemHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Old_Main.cs" />
+    <Compile Include="SlotData.cs" />
+    <Compile Include="Hooks\SwingDoorPatches.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
