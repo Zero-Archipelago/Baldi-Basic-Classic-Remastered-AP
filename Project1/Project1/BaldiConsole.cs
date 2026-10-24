@@ -207,8 +207,8 @@ public class BaldiConsole : MonoBehaviour
                 var t2 = Mathf.Clamp01(entry.stateTimer / _fadeOutTime);
                 entry.offsetY = Mathf.Lerp(0f, FadeUpOffset, t2);
                 var alpha = 1f - t2;
-                if (entry.text != null) entry.text.color = new Color(.5f, .4f, .9f, alpha);
-                if (entry.background != null) entry.background.color = new Color(.1f, .1f, .1f, alpha * .85f);
+                if (entry.text != null) entry.text.color = new Color(0f, 0f, 0f, alpha);
+                if (entry.background != null) entry.background.color = new Color(1f, 1f, 1f, alpha * .85f);
                 if (t2 >= 1f) return true;
                 break;
         }
@@ -307,8 +307,8 @@ public class BaldiConsole : MonoBehaviour
         entry.text = text;
         entry.background = bg;
 
-        text.color = new Color(.5f, .4f, .9f, 1f);
-        bg.color = new Color(.1f, .1f, .1f, .85f);
+        text.color = new Color(0f, 0f, 0f, 1f);
+        bg.color = new Color(1f, 1f, 1f, .85f);
 
         text.text = entry.colorizedMessage;
 
@@ -340,8 +340,8 @@ public class BaldiConsole : MonoBehaviour
 
         entry.text = text;
         entry.background = bg;
-        text.color = new Color(.5f, .4f, .9f, 1f);
-        bg.color = new Color(.1f, .1f, .1f, .85f);
+        text.color = new Color(0f, 0f, 0f, 1f);
+        bg.color = new Color(1f, 1f, 1f, .85f);
 
         UpdateEntryVisual(entry);
     }

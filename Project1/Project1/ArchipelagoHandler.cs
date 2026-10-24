@@ -61,7 +61,7 @@ public class ArchipelagoHandler : MonoBehaviour
     
     public void CreateSession(string server, string slot, string password)
     {
-        if (Server != null)
+        if (server == null)
             return;
         Server = server;
         SlotName = slot;
