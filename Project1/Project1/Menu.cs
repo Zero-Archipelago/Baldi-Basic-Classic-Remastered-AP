@@ -14,6 +14,8 @@ namespace BaldiAP
 
         public void Update()
         {
+            if (Main.ArchipelagoHandler.IsConnected)
+                return;
             MenuShow();
         }
 
@@ -62,7 +64,8 @@ namespace BaldiAP
 
         private void ConnectToArchipelago(string server, string slot, string password)
         {
-            Debug.Log($"Connecting to {server} with slot {slot}...");
+            Main.ArchipelagoHandler.CreateSession(server, slot, password);
+            Main.ArchipelagoHandler.Connect();
         }
     }
 }
