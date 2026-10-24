@@ -3,60 +3,58 @@ using UnityEngine;
 
 namespace BaldiAP
 {
-    public class Menu
+    public class Menu: MonoBehaviour
     {
-        private bool ShowMenu = false;
-        public string Server = "";
-        public string Slot = "";
-        public string Password = "";
+        public bool showMenu = false;
+        public string server = "archipelago.gg:";
+        public string slot = "";
+        public string password = "";
 
-        private Rect WindowRect => new Rect(20, 20, 300, 350);
+        private Rect WindowRect => new Rect(350, 50, 400, 300);
 
         public void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F1))
-            {
-                ShowMenu = !ShowMenu;
-                Cursor.visible = ShowMenu;
-                if (ShowMenu)
-                {
-                    Cursor.lockState = CursorLockMode.None;
-                }
-                else
-                {
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
-            }
+            if (Main.ArchipelagoHandler.IsConnected)
+                return;
+            MenuShow();
+        }
+
+        public void MenuShow()
+        {
+            if (!Input.GetKeyDown(KeyCode.F1)) return;
+            showMenu = !showMenu;
+            
+            Cursor.visible = showMenu;
+            Cursor.lockState = showMenu ? CursorLockMode.None : CursorLockMode.Locked;
+
+            CursorController.Instance.DisableClick(showMenu);
+            CursorController.Instance.Hide(showMenu);
         }
 
         public void OnGUI()
         {
-            if (!ShowMenu) return;
-            GUI.Window(0, WindowRect, DrawMenu, "AP Connection");
+            if (!showMenu) return;
+            GUI.Window(0, WindowRect, DrawMenu, "Archipelago Connection");
         }
 
         private void DrawMenu(int id)
         {
-            GUILayout.BeginVertical(GUILayout.Width(300));
-
-            GUILayout.Label("Archipelago Connection");
-
-            GUILayout.Space(8);
+            GUILayout.BeginVertical(GUILayout.Width(380));
 
             GUILayout.Label("Server:");
-            Server = GUILayout.TextField(Server);
+            server = GUILayout.TextField(server);
 
             GUILayout.Label("Slot:");
-            Slot = GUILayout.TextField(Slot);
+            slot = GUILayout.TextField(slot);
 
             GUILayout.Label("Password:");
-            Password = GUILayout.PasswordField(Password, '*');
+            password = GUILayout.PasswordField(password, '*');
 
-            GUILayout.Space(10);
+            GUILayout.Space(25);
 
-            if (GUILayout.Button("Connect", GUILayout.Height(30)))
+            if (GUILayout.Button("Connect", GUILayout.Height(35)))
             {
-                ConnectToArchipelago(Server, Slot, Password);
+                ConnectToArchipelago(server, slot, password);
             }
 
             GUILayout.EndVertical();
@@ -66,7 +64,8 @@ namespace BaldiAP
 
         private void ConnectToArchipelago(string server, string slot, string password)
         {
-            Debug.Log($"Connecting to {server} with slot {slot}...");
+            Main.ArchipelagoHandler.CreateSession(server, slot, password);
+            Main.ArchipelagoHandler.Connect();
         }
     }
 }

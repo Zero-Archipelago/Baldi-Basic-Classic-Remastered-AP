@@ -1,10 +1,13 @@
+using System;
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace BaldiAP
 {
+    [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
     public class Main : BaseUnityPlugin
     {
         public const string GameName = "Baldi's Basics Classic Remastered";
@@ -12,25 +15,29 @@ namespace BaldiAP
         public const string pluginName = "Archipelago";
         public const string pluginVersion = "0.0.1";
         
-        public static ConfigEntry<bool>? EnableDebugLogging;
-        public static ConfigEntry<bool>? FilterLog;
-        public static ConfigEntry<float>? MessageInTime;
-        public static ConfigEntry<float>? MessageHoldTime;
-        public static ConfigEntry<float>? MessageOutTime;
+        [CanBeNull] public static ConfigEntry<bool> EnableDebugLogging;
+        [CanBeNull] public static ConfigEntry<bool> FilterLog;
+        [CanBeNull] public static ConfigEntry<float> MessageInTime;
+        [CanBeNull] public static ConfigEntry<float> MessageHoldTime;
+        [CanBeNull] public static ConfigEntry<float> MessageOutTime;
         
         private readonly Harmony _harmony = new Harmony(pluginGuid);
-        public static ManualLogSource? logger;
+        [CanBeNull] public static ManualLogSource logger;
         
-        public static AP_Hand ArchipelagoHandler;
+        public static ArchipelagoHandler ArchipelagoHandler;
+        public static SlotData SlotData;
         public static ItemHandler ItemHandler;
+
+        public static Menu menu;
 
         void Awake()
         {
             logger = Logger;
             _harmony.PatchAll();
             
-            ArchipelagoHandler = gameObject.AddComponent<AP_Hand>();
+            ArchipelagoHandler = gameObject.AddComponent<ArchipelagoHandler>();
             ItemHandler = gameObject.AddComponent<ItemHandler>();
+            menu = gameObject.AddComponent<Menu>();
             
             EnableDebugLogging = Config.Bind(
                 "Logging",
