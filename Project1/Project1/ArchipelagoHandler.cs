@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Archipelago.MultiClient.Net;
@@ -13,9 +14,9 @@ using UnityEngine;
 
 namespace BaldiAP;
 
-public class AP_Hand : MonoBehaviour
+public class ArchipelagoHandler : MonoBehaviour
 {
-    public ArchipelagoSession? Session { get; set; }
+    [CanBeNull] public ArchipelagoSession Session { get; set; }
     [CanBeNull] private string Server { get; set; }
     [CanBeNull] public string SlotName { get; set; }
     [CanBeNull] private string Password { get; set; }
@@ -35,6 +36,23 @@ public class AP_Hand : MonoBehaviour
     [CanBeNull] private string _lastDeath;
     [CanBeNull] private DateTime _lastDeathTime = DateTime.Now;
 
+    private readonly Dictionary<string, List<string>> _deathMessagesByType = new()
+    {
+        { "Baldi", [
+                "sums up his deaths.",
+                "got their head subtracted from their shoulders.",
+                "got got by Baldi."
+            ]
+        },
+        { "Other", [
+                "failed to get out while they still could.",
+                "died because they felt like it.",
+                "wasn't welcomed to the schoolhouse.",
+                "got put in detention."
+            ]
+        }
+    };
+    
     public void CreateSession(string server, string slot, string password)
     {
         if (Server != null)
