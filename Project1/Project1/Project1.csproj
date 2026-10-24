@@ -42,6 +42,7 @@
     <Compile Include="AP_Hand.cs" />
     <Compile Include="BaldiConsole.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Hooks\StandardDoorPatches.cs" />
     <Compile Include="ItemHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Menu.cs" />
