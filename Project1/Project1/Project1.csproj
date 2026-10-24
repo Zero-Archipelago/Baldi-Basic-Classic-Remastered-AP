@@ -39,10 +39,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AP_Hand.cs" />
+    <Compile Include="ArchipelagoHandler.cs" />
     <Compile Include="BaldiConsole.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Hooks\MainMenuPatches.cs" />
     <Compile Include="Hooks\StandardDoorPatches.cs" />
+    <Compile Include="Hooks\StandardMenuButtonPatches.cs" />
     <Compile Include="ItemHandler.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Menu.cs" />
