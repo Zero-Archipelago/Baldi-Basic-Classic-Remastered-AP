@@ -109,7 +109,7 @@ public class BaldiConsole : MonoBehaviour
         if (Main.MessageHoldTime != null) _instance._holdTime = Main.MessageHoldTime.Value;
         if (Main.MessageOutTime != null) _instance._fadeOutTime = Main.MessageOutTime.Value;
 
-        _instance.Log($"by Gren & CallmeZero");
+        _instance.Log($"by Grenhunterr, Mewlif and CallmeZero");
         _instance.Log($"Press {LogToggleKey} to Toggle log & {HistoryToggleKey} to toggle history");
         _instance.DebugLog("Colour Test");
         foreach (var word in KeywordColors.Keys) _instance.DebugLog(word);
