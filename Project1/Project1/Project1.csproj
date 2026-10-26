@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="ArchipelagoHandler.cs" />
     <Compile Include="BaldiConsole.cs" />
+    <Compile Include="Enums\ItemNames.cs" />
+    <Compile Include="Enums\SwingDoorNames.cs" />
+    <Compile Include="Hooks\ItemManagerPatches.cs" />
     <Compile Include="Hooks\MainMenuPatches.cs" />
     <Compile Include="Hooks\StandardDoorPatches.cs" />
     <Compile Include="Hooks\StandardMenuButtonPatches.cs" />
