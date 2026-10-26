@@ -47,7 +47,12 @@ public class ArchipelagoHandler : MonoBehaviour
         { "Baldi", [
                 "sums up his deaths.",
                 "got their head subtracted from their shoulders.",
-                "got got by Baldi."
+                "got got by Baldi.",
+                "failed to get out while they still could.",
+                "died because they felt like it.",
+                "wasn't welcomed to the schoolhouse.",
+                "got put in detention.",
+                "was swept underneath the floor."
             ]
         },
         { "Other", [
