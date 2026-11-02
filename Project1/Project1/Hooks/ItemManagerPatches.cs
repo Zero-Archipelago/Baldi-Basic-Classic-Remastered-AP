@@ -19,7 +19,7 @@ public class ItemManagerPatches
             {
                 __instance.AddItem(item);
             }
-            else if (item.name == ItemNames.BSODA)
+            else if (item.name != ItemNames.AlarmClock)
             {
                 Debug.Log(item);
             }
