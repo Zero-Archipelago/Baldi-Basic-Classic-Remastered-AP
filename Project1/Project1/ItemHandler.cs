@@ -8,7 +8,7 @@ public class ItemHandler : MonoBehaviour
 {
     public enum BaldiItems : int
     {
-        BSODA = 0
+        BSODA = 3
     }
     
     private Queue<(int, ItemInfo)> cachedItems;
@@ -50,6 +50,7 @@ public class ItemHandler : MonoBehaviour
     public void CollectItem(int index, ItemInfo item)
     {
         Main.logger.LogInfo($"CollectItem: {index} -> {item.ItemName}");
+        BaldiConsole.Instance.DebugLog($"CollectItem: {index} -> {item.ItemId}");
         var customSaveDataHandler = CustomSaveDataHandler.Data;
         if  (index < customSaveDataHandler.ItemIndex)
             return;
@@ -57,7 +58,7 @@ public class ItemHandler : MonoBehaviour
         switch ((BaldiItems)item.ItemId)
         {
             case BaldiItems.BSODA:
-                Main.logger.LogInfo($"You got BSODA!");
+                BaldiConsole.Instance.DebugLog($"SODAAAA!!");
                 break;
         }
     }
