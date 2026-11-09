@@ -119,6 +119,7 @@ public class ArchipelagoHandler : MonoBehaviour
             connectionSucceeded = true;
             connectionFinished = true;
             OnConnected?.Invoke();
+            CustomSaveDataHandler.Load();
             yield break;
         }
         
