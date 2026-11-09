@@ -14,7 +14,7 @@ public class CustomSaveDataHandler : MonoBehaviour
 {
     [CanBeNull] public static CustomSaveData Data;
     
-    public void Save()
+    public static void Save()
     {
         if (!Main.ArchipelagoHandler?.IsConnected ?? true)
             return;
@@ -28,7 +28,7 @@ public class CustomSaveDataHandler : MonoBehaviour
         File.WriteAllText(path, text);
     }
 
-    public void Load()
+    public static void Load()
     {
         if (!Main.ArchipelagoHandler?.IsConnected ?? true)
             return;
